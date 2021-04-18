@@ -36,6 +36,13 @@ function update(event){
     if(event.keyCode == 38 && direction != "down") direction = "up";
     if(event.keyCode == 39 && direction != "left") direction = "right";
     if(event.keyCode == 40 && direction != "up") direction = "down";
+
+    for (let i = 1; i < snake.length; i++) {
+        if(snake[0].x == snake[i].x && snake[0].y == snake[i].y){
+            clearInterval(game);
+            alert('Game Over! :(');
+        }        
+    }
 }
 
 document.addEventListener('keydown', update);
